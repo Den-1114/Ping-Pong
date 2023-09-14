@@ -1,6 +1,6 @@
 from pygame import *
 
-window = display.set_mode((700, 500))
+window = display.set_mode((1520, 780))
 clock = time.Clock()
 display.set_caption('Ping Pong')
 
@@ -28,12 +28,12 @@ class Platform(sprite.Sprite):
         if self.player == 'a':
             if keys_pressed[K_UP] and self.rect.y > 0:
                 self.rect.y -= self.speed
-            if keys_pressed[K_DOWN] and self.rect.y < 400:
+            if keys_pressed[K_DOWN] and self.rect.y < 680:
                 self.rect.y += self.speed
         else:
             if keys_pressed[K_w] and self.rect.y > 0:
                 self.rect.y -= self.speed
-            if keys_pressed[K_s] and self.rect.y < 400:
+            if keys_pressed[K_s] and self.rect.y < 680:
                 self.rect.y += self.speed
     
 class GameSprite(sprite.Sprite):
@@ -52,8 +52,8 @@ class GameSprite(sprite.Sprite):
         return self.rect.colliderect(rect)
 
 
-Player1 = Platform(0, 255, 0, 650, 150, 10, 100, 'a', 6)
-Player2 = Platform(255, 0, 0, 50, 150, 10, 100, 'b', 6)
+Player1 = Platform(0, 255, 0, 1470, 760/2, 10, 100, 'a', 6)
+Player2 = Platform(255, 0, 0, 50, 760/2, 10, 100, 'b', 6)
 Ball = GameSprite('ball.png', 350, 250, 70, 70, 5)
 
 speed_x = 3
@@ -136,7 +136,7 @@ while game:
             str(timer) + 'seconds left', True, (255, 255, 255)
         )
 
-        window.blit(timer_lb, (250, 10))
+        window.blit(timer_lb, (660, 10))
         score_A = font1.render(
             'Player A Points: ' + str(points_A), True, (255, 255, 255)
         )
@@ -145,7 +145,7 @@ while game:
             'Player B Points: ' + str(points_B), True, (255, 255, 255)
         )
 
-        window.blit(score_A, (500, 10))
+        window.blit(score_A, (1330, 10))
         window.blit(score_B, (25, 10))
 
         Ball.rect.x += speed_x
@@ -160,10 +160,10 @@ while game:
         if Ball.rect.y < 0:
             speed_y *= -1
     
-        if Ball.rect.y > 450:
+        if Ball.rect.y > 730:
             speed_y *= -1
 
-        if Ball.rect.x > 650:
+        if Ball.rect.x > 1470:
             speed_x *= -1
             points_B += 1
 
