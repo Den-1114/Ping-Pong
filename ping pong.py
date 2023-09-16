@@ -56,8 +56,8 @@ class GameSprite(sprite.Sprite):
 
 Balls = []
 
-Player1 = Platform(0, 255, 0, 1470, 760/2, 10, 100, 'a', 6)
-Player2 = Platform(255, 0, 0, 50, 760/2, 10, 100, 'b', 6)
+Player1 = Platform(0, 255, 0, 1510, 760/2, 10, 100, 'a', 6)
+Player2 = Platform(255, 0, 0, 0, 760/2, 10, 100, 'b', 6)
 Ball = GameSprite('ball.png', 350, 250, 70, 70, 5, 3, 3)
 
 Balls.append(Ball)
